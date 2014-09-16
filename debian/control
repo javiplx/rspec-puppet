@@ -1,0 +1,28 @@
+Source: ruby-rspec-puppet
+Section: citools
+Priority: optional
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Thomas Bechtold <toabctl@debian.org>
+Build-Depends: debhelper (>= 7.0.50~), gem2deb
+Standards-Version: 3.9.5
+Vcs-Git: git://anonscm.debian.org/pkg-ruby-extras/ruby-rspec-puppet.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-ruby-extras/ruby-rspec-puppet.git;a=summary
+Homepage: https://github.com/rodjek/rspec-puppet/
+XS-Ruby-Versions: all
+
+Package: ruby-rspec-puppet
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         puppet-common,
+         ruby | ruby-interpreter,
+         ruby-rspec,
+Description: RSpec tests for your Puppet manifests
+ Puppet lets you centrally manage every important aspect of your system
+ using a cross-platform specification language that manages all the
+ separate elements normally aggregated in different files, like users,
+ cron jobs, and hosts, along with obviously discrete elements like
+ packages, services, and files.
+ .
+ This ruby module contains RSpec tests for Puppet manifests.

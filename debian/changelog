@@ -1,0 +1,30 @@
+ruby-rspec-puppet (1.0.1-2) stable; urgency=medium
+
+  * Imported from jessie
+  * Release from github to include cobertura reports
+
+ -- Javier Palacios <javier.palacios@fon.com>  Mon,  4 Aug 2014 17:56:00 +0200
+
+ruby-rspec-puppet (1.0.1-2) unstable; urgency=medium
+
+  * Team upload.
+  * Added puppet-common dependency (Closes: #737649)
+
+ -- Sebastien Badia <seb@sebian.fr>  Wed, 12 Mar 2014 00:15:10 +0100
+
+ruby-rspec-puppet (1.0.1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/control:
+    - Remove Depends on ruby-puppetlabs-spec-helper. Dependency
+      dropped upstream.
+    - Use Debian address for Uploaders field.
+    - Bump Standards-Version to 3.9.5. No further changes.
+
+ -- Thomas Bechtold <toabctl@debian.org>  Fri, 27 Dec 2013 08:00:48 +0100
+
+ruby-rspec-puppet (0.1.6-1) unstable; urgency=low
+
+  * Initial release (Closes: #730851)
+
+ -- Thomas Bechtold <thomasbechtold@jpberlin.de>  Sat, 30 Nov 2013 08:08:21 +0100
