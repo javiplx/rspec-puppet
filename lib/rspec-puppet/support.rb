@@ -69,8 +69,9 @@ module RSpec::Puppet
     end
 
     def nodename(type)
+      return node if self.respond_to?(:node)
       if [:class, :define, :function].include? type
-        self.respond_to?(:node) ? node : Puppet[:certname]
+        Puppet[:certname]
       else
         self.class.top_level_description.downcase
       end
@@ -91,9 +92,12 @@ module RSpec::Puppet
 
     def facts_hash(node)
       facts_val = {
-        'hostname' => node.split('.').first,
-        'fqdn'     => node,
-        'domain'   => node.split('.', 2).last,
+        'clientversion' => Puppet::PUPPETVERSION,
+        'environment'   => 'production',
+        'hostname'      => node.split('.').first,
+        'fqdn'          => node,
+        'domain'        => node.split('.', 2).last,
+        'clientcert'    => node
       }
 
       if RSpec.configuration.default_facts.any?
