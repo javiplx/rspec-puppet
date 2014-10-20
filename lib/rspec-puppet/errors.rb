@@ -11,10 +11,18 @@ module RSpec::Puppet
       end
 
       def message
-        if negative == true
-          "#{param} not set to #{expected.inspect} but it is set to #{actual.inspect}"
+        if @param.to_s == 'content' and expected.is_a?( String )
+          if negative == true
+            "#{param} not set to #{expected.lines.first.chomp} ... but it is set to #{actual.lines.first.chomp} ..."
+          else
+            "#{param} set to #{expected.lines.first.chomp} ... but it is set to #{actual.lines.first.chomp} ..."
+          end
         else
-          "#{param} set to #{expected.inspect} but it is set to #{actual.inspect}"
+          if negative == true
+            "#{param} not set to #{expected.inspect} but it is set to #{actual.inspect}"
+          else
+            "#{param} set to #{expected.inspect} but it is set to #{actual.inspect}"
+          end
         end
       end
 
