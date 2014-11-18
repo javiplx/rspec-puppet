@@ -1,9 +1,10 @@
-ruby-rspec-puppet (1.0.1-2) stable; urgency=medium
+ruby-rspec-puppet (1.0.1-3) stable; urgency=medium
 
-  * Imported from jessie
-  * Release from github to include cobertura reports
+  * Show only first lines on summaries when comparing file contents
+  * Add cobertura reports
+  * Debian maintainer scripts imported from jessie
 
- -- Javier Palacios <javier.palacios@fon.com>  Mon,  4 Aug 2014 17:56:00 +0200
+ -- Javier Palacios <javier.palacios@fon.com>  Tue, 18 Nov 2014 13:26:27 +0100
 
 ruby-rspec-puppet (1.0.1-2) unstable; urgency=medium
 
