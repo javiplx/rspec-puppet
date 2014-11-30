@@ -3,6 +3,7 @@ require 'spec_helper'
 describe 'get_resource' do
 
   context 'called on top scope' do
+    let(:node) { '' }
     it { should run.with_params('any').and_return(['Class','Main']) }
   end
 
