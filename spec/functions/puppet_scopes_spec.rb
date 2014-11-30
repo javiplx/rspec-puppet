@@ -23,12 +23,13 @@ describe 'get_module_name' do
 
   context 'called on top scope' do
     let(:node) { '' }
-    it { should run.with_params('any').and_return('') }
+    it { should run.with_params('any').and_return(nil) }
   end
 
   context 'called on node' do
     let(:node) { 'testhost_a' }
-    it { should run.with_params('any').and_return('') }
+    # Actual module_name is empty string instead of nil, but seems to wok
+    it { should run.with_params('any').and_return(nil) }
   end
 
   context 'called on class' do
