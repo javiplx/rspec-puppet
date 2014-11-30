@@ -6,4 +6,5 @@ class test::classes_used {
   }
 
   class { 'test::lookup_class': }
+  class { 'test::lookup::deep': }
 }
