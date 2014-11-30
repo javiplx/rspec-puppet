@@ -32,15 +32,5 @@ describe 'get_module_name' do
     it { should run.with_params('any').and_return(nil) }
   end
 
-  context 'called on class' do
-    let(:class_scope) { 'rspec' }
-    it { should run.with_params('any').and_return('rspec') }
-  end
-
-  context 'called on class' do
-    let(:class_scope) { 'rspec::subclass' }
-    it { should run.with_params('any').and_return('rspec') }
-  end
-
 end
 
