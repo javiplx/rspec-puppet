@@ -142,7 +142,10 @@ module RSpec::Puppet
         end
       end
 
-      Puppet[:libdir] = modulepath_iter{ |modpath| Dir["#{modpath}/*/lib"].entries }.flatten.join(File::PATH_SEPARATOR)
+      modulepath_iter do |modpath|
+        $LOAD_PATH.concat Dir["#{modpath}/*/lib"].entries
+      end
+
       vardir
     end
 
