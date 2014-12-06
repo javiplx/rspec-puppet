@@ -184,8 +184,12 @@ module RSpec::Puppet
         scope = Puppet::Parser::Scope.new(compiler)
       end
 
-      scope.source = Puppet::Resource::Type.new(:node, node_name)
-      scope.parent = compiler.topscope
+      if node_name.empty?
+        scope.source = Puppet::Resource::Type.new(:hostclass, nil)
+      else
+        scope.source = Puppet::Resource::Type.new(:node, node_name)
+        scope.parent = compiler.topscope
+      end
       scope
     end
 

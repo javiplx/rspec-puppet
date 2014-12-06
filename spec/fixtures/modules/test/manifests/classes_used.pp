@@ -4,4 +4,7 @@ class test::classes_used {
   class { 'test::parameterised_class':
     text => 'bar',
   }
+
+  class { 'test::lookup_class': }
+  class { 'test::lookup::deep': }
 }

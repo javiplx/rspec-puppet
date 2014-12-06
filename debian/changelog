@@ -1,5 +1,6 @@
-ruby-rspec-puppet (1.0.1-3) stable; urgency=medium
+ruby-rspec-puppet (1.0.1-4) stable; urgency=medium
 
+  * Properly set scope object on parser functions
   * Show only first lines on summaries when comparing file contents
   * Add cobertura reports
   * Debian maintainer scripts imported from jessie

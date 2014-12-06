@@ -12,6 +12,14 @@ module RSpec::Puppet
       node_name = nodename(:function)
 
       function_scope = scope(compiler, node_name)
+      if self.respond_to?(:class_scope) && !class_scope.nil?
+        main_resource = Puppet::Parser::Resource.new('class', class_scope , { :scope => function_scope })
+      elsif node_name.empty?
+        main_resource = Puppet::Parser::Resource.new('class', 'main' , { :scope => function_scope })
+      else
+        main_resource = Puppet::Parser::Resource.new('node', node_name , { :scope => function_scope })
+      end
+      function_scope.resource = main_resource
 
       # Return the method instance for the function.  This can be used with
       # method.call
