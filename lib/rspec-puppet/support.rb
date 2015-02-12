@@ -132,6 +132,7 @@ module RSpec::Puppet
         [:config, :config],
         [:confdir, :confdir],
         [:hiera_config, :hiera_config],
+        [:module_repository, :module_repository],
         [:parser, :parser],
       ].each do |a, b|
         value = self.respond_to?(b) ? self.send(b) : RSpec.configuration.send(b)
@@ -193,8 +194,12 @@ module RSpec::Puppet
         scope = Puppet::Parser::Scope.new(compiler)
       end
 
-      scope.source = Puppet::Resource::Type.new(:node, node_name)
-      scope.parent = compiler.topscope
+      if node_name.empty?
+        scope.source = Puppet::Resource::Type.new(:hostclass, nil)
+      else
+        scope.source = Puppet::Resource::Type.new(:node, node_name)
+        scope.parent = compiler.topscope
+      end
       scope
     end
 

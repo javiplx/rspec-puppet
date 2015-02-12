@@ -10,6 +10,8 @@ describe 'test::classes_used' do
     should include_class('test::parameterised_class')
   }
 
+  it { should contain_class('test::lookup::deep').with_text('test') }
+  it { should contain_class('test::lookup_class').with_text('test') }
   it { should contain_class('test::parameterised_class').with_text('bar') }
   it { should contain_class('test::bare_class') }
 end

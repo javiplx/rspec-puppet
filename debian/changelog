@@ -1,0 +1,39 @@
+ruby-rspec-puppet (2.0.0-2) stable; urgency=medium
+
+  * Add module_repository to list of configurable puppet settings
+  * Updated upstream
+
+ -- Javier Palacios <javier.palacios@fon.com>  Thu, 12 Feb 2015 19:25:39 +0100
+
+ruby-rspec-puppet (1.0.1-4) stable; urgency=medium
+
+  * Properly set scope object on parser functions
+  * Show only first lines on summaries when comparing file contents
+  * Add cobertura reports
+  * Debian maintainer scripts imported from jessie
+
+ -- Javier Palacios <javier.palacios@fon.com>  Tue, 18 Nov 2014 13:26:27 +0100
+
+ruby-rspec-puppet (1.0.1-2) unstable; urgency=medium
+
+  * Team upload.
+  * Added puppet-common dependency (Closes: #737649)
+
+ -- Sebastien Badia <seb@sebian.fr>  Wed, 12 Mar 2014 00:15:10 +0100
+
+ruby-rspec-puppet (1.0.1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/control:
+    - Remove Depends on ruby-puppetlabs-spec-helper. Dependency
+      dropped upstream.
+    - Use Debian address for Uploaders field.
+    - Bump Standards-Version to 3.9.5. No further changes.
+
+ -- Thomas Bechtold <toabctl@debian.org>  Fri, 27 Dec 2013 08:00:48 +0100
+
+ruby-rspec-puppet (0.1.6-1) unstable; urgency=low
+
+  * Initial release (Closes: #730851)
+
+ -- Thomas Bechtold <thomasbechtold@jpberlin.de>  Sat, 30 Nov 2013 08:08:21 +0100
