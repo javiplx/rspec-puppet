@@ -44,7 +44,7 @@ module RSpec::Puppet
           "import '#{path_to_manifest}.pp'",
           '',
         ].join("\n")
-      elsif Puppet[:modulepath].split(':').collect{ |modpath| File.exists?(modpath) }.any?
+      elsif modulepath_iter{ |modpath| File.exists?(modpath) }.any?
         import_str = "import '#{Puppet[:manifest]}'\n"
       else
         import_str = ""
@@ -142,7 +142,7 @@ module RSpec::Puppet
         end
       end
 
-      Puppet[:libdir] = Dir["#{Puppet[:modulepath]}/*/lib"].entries.join(File::PATH_SEPARATOR)
+      Puppet[:libdir] = modulepath_iter{ |modpath| Dir["#{modpath}/*/lib"].entries }.flatten.join(File::PATH_SEPARATOR)
       vardir
     end
 
@@ -210,6 +210,12 @@ module RSpec::Puppet
         alias_method :failure_message_for_should, :failure_message
         alias_method :failure_message_for_should_not, :failure_message_when_negated
       end
+    end
+
+    private
+
+    def modulepath_iter(&block)
+      Puppet[:modulepath].split(File::PATH_SEPARATOR).collect{ |modpath| block.call(modpath) }
     end
   end
 end
