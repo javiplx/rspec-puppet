@@ -44,7 +44,7 @@ module RSpec::Puppet
           "import '#{path_to_manifest}.pp'",
           '',
         ].join("\n")
-      elsif File.exists?(Puppet[:modulepath])
+      elsif Puppet[:modulepath].split(':').collect{ |modpath| File.exists?(modpath) }.any?
         import_str = "import '#{Puppet[:manifest]}'\n"
       else
         import_str = ""
